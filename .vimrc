@@ -21,6 +21,25 @@ highlight Search term=reverse ctermbg=4 ctermfg=7
 set pastetoggle=<f5>
 
 
+
+" some specail config for bind
+" first 3 => my unbutu conf, 1 => CentOS, 1 => freebsd
+au BufNewFile,BufRead /etc/bind/master/*,/var/lib/bind/*,/var/named/*,/etc/named*,/etc/namedb/* call s:BindzoneCheckOwO()
+au BufNewFile,BufRead */named/db.*,*/bind/db.*  call s:StarSetfOwO()
+au BufNewFile,BufRead named.root        set syntax=bindzone noexpandtab tabstop=8 shiftwidth=8
+au BufNewFile,BufRead *.db          call s:BindzoneCheckOwO()
+func! s:BindzoneCheckOwO()
+  if getline(1).getline(2).getline(3).getline(4) =~ '^; <<>> DiG [0-9.]\+ <<>>\|BIND.*named\|$ORIGIN\|$TTL\|IN\s\+SOA'
+    set syntax=bindzone noexpandtab tabstop=8 shiftwidth=8
+  endif
+endfunc
+func! s:StarSetfOwO()
+  if expand("<amatch>") !~ g:ft_ignore_pat
+    set syntax=bindzone noexpandtab tabstop=8 shiftwidth=8
+  endif
+endfunc
+
+
 " Smart HOME
 nmap <silent><Home> :call SmartHome("n")<CR>
 imap <silent><Home> <C-r>=SmartHome("i")<CR>
