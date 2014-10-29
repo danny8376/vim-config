@@ -41,6 +41,8 @@ func! s:StarSetfOwO()
     set syntax=bindzone noexpandtab tabstop=8 shiftwidth=8
   endif
 endfunc
+" config for postfix
+au BufNewFile,BufRead /etc/postfix/* set noexpandtab tabstop=8 shiftwidth=8
 
 
 " Smart HOME
