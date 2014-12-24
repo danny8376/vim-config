@@ -25,6 +25,9 @@ set pastetoggle=<f5>
 " some special config for git (?
 au BufNewFile,BufRead */.git/config set noexpandtab
 
+" liquidsoap
+au BufRead,BufNewFile *.liq set filetype=liquidsoap
+
 " some special config for bind
 " first 3 => my unbutu conf, 1 => CentOS, 1 => freebsd
 au BufNewFile,BufRead /etc/bind/master/*,/var/lib/bind/*,/var/named/*,/etc/named*,/etc/namedb/* call s:BindzoneCheckOwO()
