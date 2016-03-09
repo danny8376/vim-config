@@ -22,6 +22,11 @@ set pastetoggle=<f5>
 
 
 
+" force file save with sudo
+cmap w!! w !sudo tee > /dev/null "%"
+
+
+
 " some special config for git (?
 au BufNewFile,BufRead */.git/config set noexpandtab
 
