@@ -24,6 +24,7 @@ set pastetoggle=<f5>
 
 " force file save with sudo
 cmap w!! w !sudo tee > /dev/null "%"
+cmap wq!! w !sudo tee > /dev/null "%"
 
 
 
