@@ -13,6 +13,10 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+" disable mouse support
+set mouse=
+set ttymouse=
+
 filetype plugin indent on
 syntax on
 highlight Comment ctermfg=darkcyan
