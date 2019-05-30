@@ -72,6 +72,9 @@ au BufNewFile,BufRead */.git/config set noexpandtab
 " liquidsoap
 au BufRead,BufNewFile *.liq set filetype=liquidsoap
 
+" fix vue syntax highlight bug
+au FileType vue syntax sync fromstart
+
 " some special config for bind
 " first 3 => my unbutu conf, 1 => CentOS, 1 => freebsd
 au BufNewFile,BufRead /etc/bind/master/*,/var/lib/bind/*,/var/named/*,/etc/named*,/etc/namedb/* call s:BindzoneCheckOwO()
