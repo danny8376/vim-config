@@ -17,6 +17,9 @@ set expandtab
 set mouse=
 set ttymouse=
 
+set exrc
+set secure
+
 filetype plugin indent on
 syntax on
 highlight Comment ctermfg=darkcyan
@@ -24,6 +27,37 @@ highlight Search term=reverse ctermbg=4 ctermfg=7
 
 set pastetoggle=<f5>
 
+
+" Plug Auto Installation
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+
+" Plugin List
+Plug 'kchmck/vim-coffee-script'
+Plug 'andrewradev/vim-eco'
+Plug 'vim-ruby/vim-ruby'
+Plug 'slim-template/vim-slim'
+Plug 'tpope/vim-haml'
+Plug 'stephpy/vim-yaml'
+Plug 'Absolight/vim-bind'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'othree/html5.vim'
+Plug 'isRuslan/vim-es6'
+Plug 'vim-jp/vital.vim'
+Plug 'mcfiredrill/vim-liquidsoap'
+Plug 'leafgarland/typescript-vim'
+Plug 'rhysd/vim-crystal'
+Plug 'elorest/vim-slang'
+Plug 'posva/vim-vue'
+
+" Initialize plugin system
+call plug#end()
 
 
 " force file save with sudo
