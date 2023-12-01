@@ -55,6 +55,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'rhysd/vim-crystal'
 Plug 'elorest/vim-slang'
 Plug 'posva/vim-vue'
+Plug 'kentaroi/cocoa.vim'
+Plug 'keith/swift.vim'
 
 " Initialize plugin system
 call plug#end()
