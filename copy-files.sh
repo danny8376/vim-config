@@ -1,3 +1,6 @@
 #!/bin/sh
 cd $( dirname -- "$0"; )
-rsync -au .vimrc ~
+list=".vimrc"
+for i in $list; do
+    rsync -auK $i "$(readlink -f ~/$i)"
+done
